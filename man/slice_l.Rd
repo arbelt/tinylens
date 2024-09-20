@@ -9,6 +9,12 @@ slice_l(idx)
 \arguments{
 \item{idx}{Indices of the elements to lens into}
 }
+\value{
+A lens that selects the specified slice
+}
 \description{
 Lens into a slice of a vector.
+}
+\details{
+This lens performs indexing using single bracket notation, i.e., \code{x[idx]}.
 }

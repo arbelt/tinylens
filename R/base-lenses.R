@@ -3,6 +3,8 @@
 
 
 #' Identity lens
+#' 
+#' Trivial identity lens: returns and sets the object itself.
 #'
 #' @export
 id_l <- lens(

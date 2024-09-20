@@ -2,13 +2,13 @@
 % Please edit documentation in R/base-lenses.R
 \name{c_l}
 \alias{c_l}
-\title{Convenience lens for reaching into nested objects}
+\title{Lens for accessing and modifying nested elements of a list or vector}
 \usage{
 c_l(...)
 }
+\arguments{
+\item{...}{A sequence of lenses and/or integers/logical vectors}
+}
 \description{
 Convenience function that mirrors \code{\link[purrr:pluck]{purrr::pluck()}}.
-}
-\seealso{
-\code{\link[purrr:pluck]{purrr::pluck()}}
 }

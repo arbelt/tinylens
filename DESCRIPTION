@@ -1,5 +1,5 @@
 Package: tinylens
-Title: Minimal implementation of lenses.
+Title: Minimal implementation of lenses
 Version: 0.0.0.9000
 Authors@R: 
     person("Albert", "Wang", , "albert_z_wang@harvard.edu", role = c("aut", "cre"))
@@ -9,6 +9,8 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
-    S7
+    rlang,
+    S7,
+    vctrs
 Collate: 'lens.R' 'verbs.R' 'base-lenses.R' 'dataframe-lenses.R' 'zzz.R'
 Suggests: tinytest

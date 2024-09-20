@@ -1,5 +1,6 @@
 #' @include lens.R
 #' @importFrom S7 new_generic method method<-
+NULL
 
 #' View data through a lens
 #'

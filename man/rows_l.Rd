@@ -2,10 +2,16 @@
 % Please edit documentation in R/dataframe-lenses.R
 \name{rows_l}
 \alias{rows_l}
-\title{index_l}
+\title{Rows lens}
 \usage{
 rows_l(idx)
 }
+\arguments{
+\item{idx}{The rows to select}
+}
+\value{
+A lens that selects the specified rows
+}
 \description{
-index_l
+This function returns a lens that selects the specified rows.
 }

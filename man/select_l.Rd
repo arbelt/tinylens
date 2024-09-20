@@ -4,12 +4,16 @@
 \alias{select_l}
 \title{include verbs.R
 include lens.R
-select lens}
+Select lens}
 \usage{
 select_l(...)
 }
+\arguments{
+\item{...}{Columns to select}
+}
+\value{
+A lens that selects the specified columns
+}
 \description{
-include verbs.R
-include lens.R
-select lens
+This function returns a lens that selects the specified columns.
 }

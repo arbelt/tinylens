@@ -9,6 +9,12 @@ index_l(i)
 \arguments{
 \item{i}{Index of the element to lens into}
 }
+\value{
+A lens that selects the specified element
+}
 \description{
 Lens into a single element of a list.
+}
+\details{
+This lens performs indexing using double bracket notation, i.e., \code{x[[i]]}.
 }

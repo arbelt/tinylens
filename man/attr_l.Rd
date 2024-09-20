@@ -9,6 +9,9 @@ attr_l(name)
 \arguments{
 \item{name}{Name of the attribute to lens into}
 }
+\value{
+A lens that selects the specified attribute
+}
 \description{
-Lens into the named attributes of an object.
+Lens into a named attribute of an object.
 }

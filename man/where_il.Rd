@@ -2,31 +2,16 @@
 % Please edit documentation in R/base-lenses.R
 \name{where_il}
 \alias{where_il}
-\title{Lens for accessing and modifying elements of a list or vector}
+\title{Predicate ilens}
 \usage{
 where_il(p)
 }
 \arguments{
-\item{x}{An integer vector of positions, a logical vector, or a single integer.
-If a single integer is provided, it selects that specific element.
-If a vector of integers is provided, it selects those elements.
-If a logical vector is provided, it selects elements where the condition is TRUE.}
+\item{p}{A predicate function}
 }
 \value{
-A lens that can be used with \code{view}, \code{set}, and \code{over} functions.
+A lens that selects the elements that satisfy the predicate
 }
 \description{
-This lens allows you to access and modify elements of a list or vector
-based on their position or a logical condition.
-}
-\examples{
-# Select the second element of a vector
-view(c(1, 2, 3), slice_l(2))
-
-# Select multiple elements of a list
-view(list(a = 1, b = 2, c = 3), slice_l(c(1, 3)))
-
-# Select elements based on a condition
-view(c(1, 2, 3, 4), slice_l(c(TRUE, FALSE, TRUE, FALSE)))
-
+Illegal lens into elements of a vector that satisfy a predicate.
 }
