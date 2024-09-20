@@ -1,0 +1,14 @@
+Package: tinylens
+Title: Minimal implementation of lenses.
+Version: 0.0.0.9000
+Authors@R: 
+    person("Albert", "Wang", , "albert_z_wang@harvard.edu", role = c("aut", "cre"))
+Description: Very minimal implementation of lenses, inspired by the `lenses` package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    S7
+Collate: 'lens.R' 'verbs.R' 'base-lenses.R' 'dataframe-lenses.R' 'zzz.R'
+Suggests: tinytest
