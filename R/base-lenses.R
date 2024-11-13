@@ -118,6 +118,9 @@ map_l <- function(l, .ptype = list()) {
     if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
       return(unlist(new_d, recursive = FALSE))
     }
+    if (rlang::is_atomic(.ptype) && all(vapply(new_d, rlang::is_scalar_atomic))) {
+      return(unlist(new_d, recursive = FALSE))
+    }
     if (vec_is(.ptype, data.frame())) {
       return(tibble::as_tibble(new_d))
     }
@@ -129,6 +132,9 @@ map_l <- function(l, .ptype = list()) {
     }
     new_d <- mapply(l@set, d, x, SIMPLIFY = FALSE)
     if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
+      return(unlist(new_d, recursive = FALSE))
+    }
+    if (rlang::is_atomic(.ptype) && all(vapply(new_d, rlang::is_scalar_atomic))) {
       return(unlist(new_d, recursive = FALSE))
     }
     if (vec_is(.ptype, data.frame())) {
