@@ -119,7 +119,7 @@ map_l <- function(l, .ptype = list()) {
       return(unlist(new_d, recursive = FALSE))
     }
     if (vec_is(.ptype, data.frame())) {
-      return(as.data.frame(new_d))
+      return(tibble::as_tibble(new_d))
     }
     new_d
   }
@@ -132,7 +132,7 @@ map_l <- function(l, .ptype = list()) {
       return(unlist(new_d, recursive = FALSE))
     }
     if (vec_is(.ptype, data.frame())) {
-      return(as.data.frame(new_d))
+      return(tibble::as_tibble(new_d))
     }
     new_d
   }

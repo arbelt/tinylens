@@ -1,6 +1,6 @@
 Package: tinylens
 Title: Minimal implementation of functional lenses
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: 
     person("Albert", "Wang", , "albert_z_wang@harvard.edu", role = c("aut", "cre"))
 Description: Minimal implementation of functional lenses, inspired by the `lenses` package.
@@ -11,6 +11,7 @@ RoxygenNote: 7.3.2
 Imports: 
     rlang,
     S7,
+    tibble,
     tidyselect,
     vctrs
 Collate: 
