@@ -108,17 +108,17 @@ vec_data_l <- lens(
 #' based on their position or a logical condition.
 #'
 #' @param l A lens that selects the elements to lens into
-#'
+#' @param .ptype The prototype of the data structure to return
 #' @return A lens that selects the specified elements
 #'
 #' @export
-map_l <- function(l) {
+map_l <- function(l, .ptype = list()) {
   .view <- function(d) {
     new_d <- lapply(d, \(x) view(x, l))
     if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
       return(unlist(new_d, recursive = FALSE))
     }
-    if (is.data.frame(d)) {
+    if (vec_is(.ptype, data.frame())) {
       return(as.data.frame(new_d))
     }
     new_d
@@ -131,7 +131,7 @@ map_l <- function(l) {
     if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
       return(unlist(new_d, recursive = FALSE))
     }
-    if (is.data.frame(d)) {
+    if (vec_is(.ptype, data.frame())) {
       return(as.data.frame(new_d))
     }
     new_d
@@ -140,6 +140,12 @@ map_l <- function(l) {
     view = .view,
     set = .setter
   )
+}
+
+#' @export
+#' @rdname map_l
+map_df_l <- function(l) {
+  map_l(l, data.frame())
 }
 
 
