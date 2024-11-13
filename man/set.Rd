@@ -4,7 +4,7 @@
 \alias{set}
 \title{Set data through a lens}
 \usage{
-set(d, l, x, ...)
+set(d, l, x)
 }
 \arguments{
 \item{d}{The data structure to set}

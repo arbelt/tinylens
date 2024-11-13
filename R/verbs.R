@@ -1,5 +1,6 @@
 #' @include lens.R
 #' @importFrom S7 new_generic method method<-
+#' @importFrom S7 S7_dispatch
 NULL
 
 #' View data through a lens
@@ -12,7 +13,9 @@ NULL
 #' @return The part of the data structure focused by the lens
 #'
 #' @export
-view <- new_generic("view", c("d", "l"))
+view <- new_generic("view", c("d", "l"), function(d, l) {
+  S7_dispatch()
+})
 
 #' Set data through a lens
 #'
@@ -24,7 +27,9 @@ view <- new_generic("view", c("d", "l"))
 #'
 #' @return The modified data structure
 #' @export
-set <- new_generic("set", c("d", "l", "x"))
+set <- new_generic("set", c("d", "l", "x"), function(d, l, x) {
+  S7_dispatch()
+})
 
 #' Modify data through a lens
 #'
@@ -36,8 +41,9 @@ set <- new_generic("set", c("d", "l", "x"))
 #'
 #' @return The modified data structure
 #' @export
-over <- new_generic("over", c("d", "l", "f"))
-
+over <- new_generic("over", c("d", "l", "f"), function(d, l, f) {
+  S7_dispatch()
+})
 
 #' @importFrom S7 class_any method method<-
 method(view, list(class_any, lens)) <- function(d, l) {
@@ -61,7 +67,9 @@ method(over, list(class_any, lens, class_function)) <- function(d, l, f) {
 #' @param m Second lens
 #' @return A new lens
 #' @export
-`%.%` <- new_generic("%.%", c("l", "m"))
+`%.%` <- new_generic("%.%", c("l", "m"), function(l, m) {
+  S7_dispatch()
+})
 
 #' @importFrom S7 method method<-
 
@@ -82,6 +90,11 @@ method(`%.%`, list(lens, lens)) <- function(l, m) {
 #' Apply a function to each element of a list returned by a lens. Using `over`
 #' in such cases would require a "lifted" function, which is often unergonomic.
 #'
+#' @param d The data structure to modify
+#' @param l The list-returning lens to apply
+#' @param f The function to apply to each element of the list
+#'
+#' @return The modified data structure
 #' @export
 over_map <- function(d, l, f) {
   sd <- view(d, l)

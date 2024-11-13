@@ -4,7 +4,7 @@
 \alias{over}
 \title{Modify data through a lens}
 \usage{
-over(d, l, f, ...)
+over(d, l, f)
 }
 \arguments{
 \item{d}{The data structure to modify}

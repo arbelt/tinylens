@@ -6,6 +6,16 @@
 \usage{
 over_map(d, l, f)
 }
+\arguments{
+\item{d}{The data structure to modify}
+
+\item{l}{The list-returning lens to apply}
+
+\item{f}{The function to apply to each element of the list}
+}
+\value{
+The modified data structure
+}
 \description{
 Apply a function to each element of a list returned by a lens. Using \code{over}
 in such cases would require a "lifted" function, which is often unergonomic.

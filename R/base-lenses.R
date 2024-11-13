@@ -1,9 +1,10 @@
 #' @include verbs.R
 #' @include lens.R
+NULL
 
 
 #' Identity lens
-#' 
+#'
 #' Trivial identity lens: returns and sets the object itself.
 #'
 #' @export
@@ -28,7 +29,7 @@ names_l <- lens(
 #' Lens into a named attribute of an object.
 #'
 #' @param name Name of the attribute to lens into
-#' 
+#'
 #' @return A lens that selects the specified attribute
 #'
 #' @export
@@ -82,9 +83,14 @@ index_l <- function(i) {
   )
 }
 
-#' Lens into vector data
+#' Vector data lens
 #'
-#' Allows mutation of vector data while preserving attributes, e.g., labels.
+#' Allows mutation of vector data while preserving attributes, e.g., labels or names.
+#'
+#' @examples
+#' x <- c(a = "foo1", b = "bar2")
+#' view(x, vec_data_l)
+#' set(x, vec_data_l, c("foo2", "bar3"))
 #'
 #' @export
 vec_data_l <- lens(
@@ -112,6 +118,9 @@ map_l <- function(l) {
     if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
       return(unlist(new_d, recursive = FALSE))
     }
+    if (is.data.frame(d)) {
+      return(as.data.frame(new_d))
+    }
     new_d
   }
   .setter <- function(d, x) {
@@ -121,6 +130,9 @@ map_l <- function(l) {
     new_d <- mapply(l@set, d, x, SIMPLIFY = FALSE)
     if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
       return(unlist(new_d, recursive = FALSE))
+    }
+    if (is.data.frame(d)) {
+      return(as.data.frame(new_d))
     }
     new_d
   }
@@ -158,14 +170,14 @@ c_l <- function(...) {
 }
 
 #' Predicate ilens
-#' 
+#'
 #' Illegal lens into elements of a vector that satisfy a predicate.
-#' 
+#'
 #' @param p A predicate function
-#' 
+#'
 #' @return A lens that selects the elements that satisfy the predicate
-#' 
-#' @export 
+#'
+#' @export
 where_il <- function(p) {
   get_idx <- function(d) {
     result <- unlist(lapply(d, p))

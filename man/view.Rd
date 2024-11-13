@@ -4,7 +4,7 @@
 \alias{view}
 \title{View data through a lens}
 \usage{
-view(d, l, ...)
+view(d, l)
 }
 \arguments{
 \item{d}{The data structure to view}

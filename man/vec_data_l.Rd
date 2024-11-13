@@ -3,7 +3,7 @@
 \docType{data}
 \name{vec_data_l}
 \alias{vec_data_l}
-\title{Lens into vector data}
+\title{Vector data lens}
 \format{
 An object of class \code{tinylens::lens} (inherits from \code{S7_object}) of length 1.
 }
@@ -11,6 +11,12 @@ An object of class \code{tinylens::lens} (inherits from \code{S7_object}) of len
 vec_data_l
 }
 \description{
-Allows mutation of vector data while preserving attributes, e.g., labels.
+Allows mutation of vector data while preserving attributes, e.g., labels or names.
+}
+\examples{
+x <- c(a = "foo1", b = "bar2")
+view(x, vec_data_l)
+set(x, vec_data_l, c("foo2", "bar3"))
+
 }
 \keyword{datasets}
