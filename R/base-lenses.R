@@ -115,10 +115,10 @@ vec_data_l <- lens(
 map_l <- function(l, .ptype = list()) {
   .view <- function(d) {
     new_d <- lapply(d, \(x) view(x, l))
-    if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic))) {
+    if (!is.list(d) && all(vapply(new_d, rlang::is_scalar_atomic, logical(1)))) {
       return(unlist(new_d, recursive = FALSE))
     }
-    if (rlang::is_atomic(.ptype) && all(vapply(new_d, rlang::is_scalar_atomic))) {
+    if (rlang::is_atomic(.ptype) && all(vapply(new_d, rlang::is_scalar_atomic, logical(1)))) {
       return(unlist(new_d, recursive = FALSE))
     }
     if (vec_is(.ptype, data.frame())) {
