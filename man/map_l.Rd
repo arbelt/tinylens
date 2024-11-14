@@ -5,7 +5,7 @@
 \alias{map_df_l}
 \title{Lens into a list or vector}
 \usage{
-map_l(l, .ptype = list())
+map_l(l, .ptype = NULL)
 
 map_df_l(l)
 }
