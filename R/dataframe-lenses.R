@@ -43,12 +43,43 @@ rows_l <- function(idx) {
     d[idx, , drop = FALSE]
   }
   setter <- function(d, value) {
-    if (nrow(d) < 1L) return(d)
+    if (nrow(d) < 1L) {
+      return(d)
+    }
     d[idx, ] <- value
     d
   }
   lens(view = getter, set = setter)
 }
+
+#' Subset lens
+#'
+#' This function returns a lens that subsets the object in a generalized way.
+#'
+#' @param ... Conditions to subset by. Unnamed arguments are used as indices.
+#'      Named arguments are passed along to `[` for viewing and are removed for
+#'      setting.
+#'
+#' @return A lens that subsets the object by the specified indices
+#'
+#' @export
+indices_l <- function(...) {
+  .dots <- rlang::enexprs(...)
+  .unnamed_dots <- .dots[names(.dots) == ""]
+  getter <- function(d) {
+    eval_bare(expr(d[!!!.dots]))
+  }
+  setter <- function(d, value) {
+    eval_bare(expr(d[!!!.unnamed_dots] <- value))
+    d
+  }
+  lens(view = getter, set = setter)
+}
+
+
+#' @export
+#' @rdname indices_l
+i_l <- indices_l
 
 #' Filter ilens
 #'

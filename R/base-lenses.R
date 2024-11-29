@@ -97,7 +97,9 @@ vec_data_l <- lens(
   view = vctrs::vec_data,
   set = function(d, value) {
     .attrs <- attributes(d)
-    attributes(value) <- .attrs
+    new_d <- vctrs::vec_data(d)
+    new_d[] <- value
+    attributes(new_d) <- .attrs
     value
   }
 )
@@ -142,12 +144,6 @@ map_l <- function(l, .ptype = NULL) {
     view = .view,
     set = .setter
   )
-}
-
-#' @export
-#' @rdname map_l
-map_df_l <- function(l) {
-  map_l(l, data.frame())
 }
 
 

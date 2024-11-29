@@ -2,12 +2,9 @@
 % Please edit documentation in R/base-lenses.R
 \name{map_l}
 \alias{map_l}
-\alias{map_df_l}
 \title{Lens into a list or vector}
 \usage{
 map_l(l, .ptype = NULL)
-
-map_df_l(l)
 }
 \arguments{
 \item{l}{A lens that selects the elements to lens into}
