@@ -18,3 +18,13 @@ This function returns an illegal lens that filters according to the specified co
 \details{
 Conditions are evaluated in the context of the data frame.
 }
+\examples{
+d <- data.frame(x = 1:10, y = 11:20, z = 21:30)
+l <- filter_il(x > 5)
+# get the rows where x is greater than 5
+view(d, l)
+# set the rows where x is greater than 5 to 8
+set(d, l, 8)
+# set y value to 8 where x is greater than 5
+set(d, l \%.\% select_l(y), 8)
+}

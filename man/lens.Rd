@@ -14,3 +14,7 @@ lens(view = class_missing, set = class_missing)
 \description{
 A lens is a pair of functions that can be used to view and set a value in an object.
 }
+\examples{
+# create a trivial identity lens
+l <- lens(view = function(x) x, set = function(x, value) value)
+}

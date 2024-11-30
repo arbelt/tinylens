@@ -15,5 +15,14 @@ select_l(...)
 A lens that selects the specified columns
 }
 \description{
-This function returns a lens that selects the specified columns.
+This function returns a lens that selects the specified columns. Requires
+\code{tidyselect} to be installed.
+}
+\examples{
+d <- data.frame(x = 1:10, y = 11:20, z = 21:30)
+l <- select_l(x, y)
+# get the x and y columns
+view(d, l)
+# set the x and y columns
+set(d, l, 1)
 }

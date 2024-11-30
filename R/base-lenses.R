@@ -15,7 +15,8 @@ id_l <- lens(
 
 #' Names lens
 #'
-#' Lens into the `names` attribute of an object.
+#' Lens into the `names` attribute of an object. This uses `rlang::names2` to
+#' better handle `NULL` names.
 #'
 #' @importFrom rlang names2
 #' @export
@@ -33,6 +34,12 @@ names_l <- lens(
 #' @return A lens that selects the specified attribute
 #'
 #' @export
+#' @examples
+#' x <- 1:10
+#' attr(x, "label") <- "my_label"
+#' l <- attr_l("label")
+#' view(x, l)
+#' set(x, l, "new_label")
 attr_l <- function(name) {
   lens(
     view = function(x) attr(x, name, exact = TRUE),
@@ -88,10 +95,12 @@ index_l <- function(i) {
 #' Allows mutation of vector data while preserving attributes, e.g., labels or names.
 #'
 #' @examples
-#' x <- c(a = "foo1", b = "bar2")
-#' view(x, vec_data_l)
-#' set(x, vec_data_l, c("foo2", "bar3"))
-#'
+#' x <- letters[1:10]
+#' names(x) <- letters[1:10]
+#' # toy function that strips names; most functions from `stringr` do this
+#' f <- function(x) toupper(unname(x))
+#' # apply the function without losing attributes
+#' over(x, vec_data_l, f)
 #' @export
 vec_data_l <- lens(
   view = vctrs::vec_data,
@@ -100,7 +109,7 @@ vec_data_l <- lens(
     new_d <- vctrs::vec_data(d)
     new_d[] <- value
     attributes(new_d) <- .attrs
-    value
+    new_d
   }
 )
 

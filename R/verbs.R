@@ -67,12 +67,16 @@ method(over, list(class_any, lens, class_function)) <- function(d, l, f) {
 #' @param m Second lens
 #' @return A new lens
 #' @export
+#' @examples
+#' d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+#' l <- index_l(1)
+#' m <- index_l("b")
+#' view(d, l %.% m)
 `%.%` <- new_generic("%.%", c("l", "m"), function(l, m) {
   S7_dispatch()
 })
 
 #' @importFrom S7 method method<-
-
 method(`%.%`, list(lens, lens)) <- function(l, m) {
   lens(
     view = function(data) {
@@ -96,6 +100,10 @@ method(`%.%`, list(lens, lens)) <- function(l, m) {
 #'
 #' @return The modified data structure
 #' @export
+#' @examples
+#' d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+#' l <- map_l(index_l("a"))
+#' over_map(d, l, sqrt)
 over_map <- function(d, l, f) {
   sd <- view(d, l)
   if (!is.list(sd)) {

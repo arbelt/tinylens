@@ -20,3 +20,17 @@ A lens that subsets the object by the specified indices
 \description{
 This function returns a lens that subsets the object in a generalized way.
 }
+\examples{
+d <- data.frame(x = 1:10, y = 11:20, z = 21:30)
+l <- indices_l(1, 1)
+# get the first row of first column
+view(d, l)
+# set the first row of first column
+set(d, l, 1)
+
+# get the first row
+l <- indices_l(1,)
+view(d, l)
+# set the first row
+set(d, l, 1)
+}

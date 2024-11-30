@@ -20,3 +20,8 @@ The modified data structure
 Apply a function to each element of a list returned by a lens. Using \code{over}
 in such cases would require a "lifted" function, which is often unergonomic.
 }
+\examples{
+d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+l <- map_l(index_l("a"))
+over_map(d, l, sqrt)
+}

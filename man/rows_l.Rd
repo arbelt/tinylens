@@ -15,3 +15,11 @@ A lens that selects the specified rows
 \description{
 This function returns a lens that selects the specified rows.
 }
+\examples{
+d <- data.frame(x = 1:10, y = 11:20, z = 21:30)
+l <- rows_l(1:2)
+# get the first two rows
+view(d, l)
+# set the first two rows
+set(d, l, 1:2)
+}

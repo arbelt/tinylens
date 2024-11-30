@@ -17,3 +17,9 @@ A new lens
 \description{
 The resulting lens first applies the \emph{left} lens, then the right lens.
 }
+\examples{
+d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+l <- index_l(1)
+m <- index_l("b")
+view(d, l \%.\% m)
+}

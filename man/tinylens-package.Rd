@@ -9,7 +9,7 @@
 Minimal implementation of functional lenses, inspired by the `lenses` package.
 }
 \author{
-\strong{Maintainer}: Albert Wang \email{albert_z_wang@harvard.edu}
+\strong{Maintainer}: Albert Wang \email{albert_z_wang@harvard.edu} [copyright holder]
 
 }
 \keyword{internal}
