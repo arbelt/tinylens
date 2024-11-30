@@ -18,3 +18,8 @@ Lens into a slice of a vector.
 \details{
 This lens performs indexing using single bracket notation, i.e., \code{x[idx]}.
 }
+\examples{
+x <- letters[1:10]
+l <- slice_l(1:5)
+view(x, l)
+}

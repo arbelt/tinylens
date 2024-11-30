@@ -3,43 +3,43 @@
 #' @importFrom S7 S7_dispatch
 NULL
 
-#' View data through a lens
+#' Base lens verbs
 #'
-#' This function applies a lens to a data structure and returns the focused part.
+#' @description
+#' `view()` applies a lens to a data structure and returns the focused part.
+#'
+#' `set()` applies a lens to a data structure and sets the focused part.
+#'
+#' `over()` applies a lens to a data structure and modifies the focused part using a function.
 #'
 #' @param d The data structure to view
 #' @param l The lens to apply
+#' @param x The value to set
+#' @param f The function to apply
 #'
-#' @return The part of the data structure focused by the lens
+#' @return 
+#' * `view()`: The part of the data structure focused by the lens
+#' * `set()`: The modified data structure
+#' * `over()`: The modified data structure
 #'
 #' @export
+#' @examples
+#' x <- 1:10
+#' names(x) <- letters[1:10]
+#' view(x, names_l)
+#' set(x, names_l, LETTERS[1:10])
+#' over(x, names_l, toupper)
 view <- new_generic("view", c("d", "l"), function(d, l) {
   S7_dispatch()
 })
 
-#' Set data through a lens
-#'
-#' This function applies a lens to a data structure and sets the focused part.
-#'
-#' @param d The data structure to set
-#' @param l The lens to apply
-#' @param x The value to set
-#'
-#' @return The modified data structure
+#' @rdname view
 #' @export
 set <- new_generic("set", c("d", "l", "x"), function(d, l, x) {
   S7_dispatch()
 })
 
-#' Modify data through a lens
-#'
-#' This function applies a lens to a data structure and modifies the focused part.
-#'
-#' @param d The data structure to modify
-#' @param l The lens to apply
-#' @param f The function to apply
-#'
-#' @return The modified data structure
+#' @rdname view
 #' @export
 over <- new_generic("over", c("d", "l", "f"), function(d, l, f) {
   S7_dispatch()
@@ -76,6 +76,19 @@ method(over, list(class_any, lens, class_function)) <- function(d, l, f) {
   S7_dispatch()
 })
 
+#' Compose two lenses
+#'
+#' The resulting lens first applies the *left* lens, then the right lens.
+#'
+#' @param l First lens
+#' @param m Second lens
+#' @return A new lens
+#' @export
+#' @examples
+#' d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+#' l <- index_l(1)
+#' m <- index_l("b")
+#' view(d, l %.% m)
 #' @importFrom S7 method method<-
 method(`%.%`, list(lens, lens)) <- function(l, m) {
   lens(

@@ -18,3 +18,8 @@ Lens into a single element of a list.
 \details{
 This lens performs indexing using double bracket notation, i.e., \code{x[[i]]}.
 }
+\examples{
+x <- list(a = 1, b = 2)
+l <- index_l("a")
+view(x, l)
+}

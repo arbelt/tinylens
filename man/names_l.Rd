@@ -11,6 +11,13 @@ An object of class \code{tinylens::lens} (inherits from \code{S7_object}) of len
 names_l
 }
 \description{
-Lens into the \code{names} attribute of an object.
+Lens into the \code{names} attribute of an object. This uses \code{rlang::names2} to
+better handle \code{NULL} names.
+}
+\examples{
+x <- letters[1:10]
+names(x) <- letters[1:10]
+view(x, names_l)
+over(x, names_l, toupper)
 }
 \keyword{datasets}

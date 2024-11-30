@@ -18,3 +18,9 @@ A lens that selects the specified elements
 This lens allows you to access and modify elements of a list or vector
 based on their position or a logical condition.
 }
+\examples{
+d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+l <- index_l("a")
+view(d, map_l(l))
+over_map(d, map_l(l), sqrt)
+}

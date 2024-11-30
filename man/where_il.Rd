@@ -15,3 +15,9 @@ A lens that selects the elements that satisfy the predicate
 \description{
 Illegal lens into elements of a vector that satisfy a predicate.
 }
+\examples{
+d <- 1:10
+l <- where_il(\(x) x \%\% 2 == 0)
+view(d, l)
+over(d, l, \(x) x / 2)
+}

@@ -13,4 +13,8 @@ id_l
 \description{
 Trivial identity lens: returns and sets the object itself.
 }
+\examples{
+x <- 1:10
+view(x, id_l)
+}
 \keyword{datasets}

@@ -8,6 +8,9 @@ NULL
 #' Trivial identity lens: returns and sets the object itself.
 #'
 #' @export
+#' @examples
+#' x <- 1:10
+#' view(x, id_l)
 id_l <- lens(
   view = identity,
   set = function(., x) x
@@ -20,6 +23,11 @@ id_l <- lens(
 #'
 #' @importFrom rlang names2
 #' @export
+#' @examples
+#' x <- letters[1:10]
+#' names(x) <- letters[1:10]
+#' view(x, names_l)
+#' over(x, names_l, toupper)
 names_l <- lens(
   view = names2,
   set = rlang::`names2<-`
@@ -60,6 +68,10 @@ attr_l <- function(name) {
 #' @return A lens that selects the specified slice
 #'
 #' @export
+#' @examples
+#' x <- letters[1:10]
+#' l <- slice_l(1:5)
+#' view(x, l)
 slice_l <- function(idx) {
   lens(
     view = function(d) vctrs::vec_slice(d, idx),
@@ -80,6 +92,10 @@ slice_l <- function(idx) {
 #' @return A lens that selects the specified element
 #'
 #' @export
+#' @examples
+#' x <- list(a = 1, b = 2)
+#' l <- index_l("a")
+#' view(x, l)
 index_l <- function(i) {
   lens(
     view = function(x) x[[i]],
@@ -123,6 +139,11 @@ vec_data_l <- lens(
 #' @return A lens that selects the specified elements
 #'
 #' @export
+#' @examples
+#' d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
+#' l <- index_l("a")
+#' view(d, map_l(l))
+#' over_map(d, map_l(l), sqrt)
 map_l <- function(l, .ptype = NULL) {
   .view <- function(d) {
     new_d <- d
@@ -163,6 +184,10 @@ map_l <- function(l, .ptype = NULL) {
 #' @param ... A sequence of lenses and/or integers/logical vectors
 #'
 #' @export
+#' @examples
+#' d <- list(a = list(b = 1, c = 2), b = list(b = 3, c = 4))
+#' l <- c_l("a", "b")
+#' view(d, l)
 c_l <- function(...) {
   dots <- list(...)
   Reduce(function(acc, x) {
@@ -191,6 +216,11 @@ c_l <- function(...) {
 #' @return A lens that selects the elements that satisfy the predicate
 #'
 #' @export
+#' @examples 
+#' d <- 1:10
+#' l <- where_il(\(x) x %% 2 == 0)
+#' view(d, l)
+#' over(d, l, \(x) x / 2)
 where_il <- function(p) {
   get_idx <- function(d) {
     result <- unlist(lapply(d, p))

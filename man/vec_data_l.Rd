@@ -14,9 +14,11 @@ vec_data_l
 Allows mutation of vector data while preserving attributes, e.g., labels or names.
 }
 \examples{
-x <- c(a = "foo1", b = "bar2")
-view(x, vec_data_l)
-set(x, vec_data_l, c("foo2", "bar3"))
-
+x <- letters[1:10]
+names(x) <- letters[1:10]
+# toy function that strips names; most functions from `stringr` do this
+f <- function(x) toupper(unname(x))
+# apply the function without losing attributes
+over(x, vec_data_l, f)
 }
 \keyword{datasets}

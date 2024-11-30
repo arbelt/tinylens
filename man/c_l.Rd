@@ -12,3 +12,8 @@ c_l(...)
 \description{
 Convenience function that mirrors \code{\link[purrr:pluck]{purrr::pluck()}}.
 }
+\examples{
+d <- list(a = list(b = 1, c = 2), b = list(b = 3, c = 4))
+l <- c_l("a", "b")
+view(d, l)
+}

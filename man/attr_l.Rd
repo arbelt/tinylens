@@ -15,3 +15,10 @@ A lens that selects the specified attribute
 \description{
 Lens into a named attribute of an object.
 }
+\examples{
+x <- 1:10
+attr(x, "label") <- "my_label"
+l <- attr_l("label")
+view(x, l)
+set(x, l, "new_label")
+}
