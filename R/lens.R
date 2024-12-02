@@ -26,6 +26,6 @@
 lens <- S7::new_class("lens",
                       package = packageName(),
                       properties = list(
-                        "view" = class_function,
-                        "set" = class_function
+                        "view" = NULL | class_function,
+                        "set" = NULL | class_function
                       ))

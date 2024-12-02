@@ -78,19 +78,6 @@ method(over, list(class_any, lens, class_function)) <- function(d, l, f) {
   S7_dispatch()
 })
 
-#' Compose two lenses
-#'
-#' The resulting lens first applies the *left* lens, then the right lens.
-#'
-#' @param l First lens
-#' @param m Second lens
-#' @return A new lens
-#' @export
-#' @examples
-#' d <- list(list(a = 1, b = 2), list(a = 4, b = 9))
-#' l <- index_l(1)
-#' m <- index_l("b")
-#' view(d, l %.% m)
 #' @importFrom S7 method method<-
 method(`%.%`, list(lens, lens)) <- function(l, m) {
   lens(
