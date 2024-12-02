@@ -22,3 +22,5 @@ Collate:
 Suggests: 
     tidyselect,
     tinytest
+URL: https://github.com/arbelt/tinylens
+BugReports: https://github.com/arbelt/tinylens/issues
