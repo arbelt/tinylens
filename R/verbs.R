@@ -3,7 +3,7 @@
 #' @importFrom S7 S7_dispatch
 NULL
 
-#' Base lens verbs
+#' View the focused part of a data structure
 #'
 #' @description
 #' `view()` applies a lens to a data structure and returns the focused part.
@@ -14,14 +14,8 @@ NULL
 #'
 #' @param d The data structure to view
 #' @param l The lens to apply
-#' @param x The value to set
-#' @param f The function to apply
 #'
-#' @return 
-#' * `view()`: The part of the data structure focused by the lens
-#' * `set()`: The modified data structure
-#' * `over()`: The modified data structure
-#'
+#' @return The part of the data structure focused by the lens
 #' @export
 #' @examples
 #' x <- 1:10
@@ -33,13 +27,21 @@ view <- new_generic("view", c("d", "l"), function(d, l) {
   S7_dispatch()
 })
 
-#' @rdname view
+#' Set the focused part of a data structure
+#'
+#' @inheritParams view
+#' @param x The value to set
+#' @return The modified data structure
 #' @export
 set <- new_generic("set", c("d", "l", "x"), function(d, l, x) {
   S7_dispatch()
 })
 
-#' @rdname view
+#' Modify the focused part of a data structure
+#'
+#' @inheritParams view
+#' @param f The function to apply
+#' @return The modified data structure
 #' @export
 over <- new_generic("over", c("d", "l", "f"), function(d, l, f) {
   S7_dispatch()

@@ -2,31 +2,17 @@
 % Please edit documentation in R/verbs.R
 \name{view}
 \alias{view}
-\alias{set}
-\alias{over}
-\title{Base lens verbs}
+\title{View the focused part of a data structure}
 \usage{
 view(d, l)
-
-set(d, l, x)
-
-over(d, l, f)
 }
 \arguments{
 \item{d}{The data structure to view}
 
 \item{l}{The lens to apply}
-
-\item{x}{The value to set}
-
-\item{f}{The function to apply}
 }
 \value{
-\itemize{
-\item \code{view()}: The part of the data structure focused by the lens
-\item \code{set()}: The modified data structure
-\item \code{over()}: The modified data structure
-}
+The part of the data structure focused by the lens
 }
 \description{
 \code{view()} applies a lens to a data structure and returns the focused part.
