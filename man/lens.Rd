@@ -4,7 +4,7 @@
 \alias{lens}
 \title{Create a lens}
 \usage{
-lens(view = class_missing, set = class_missing)
+lens(view, set = NULL)
 }
 \arguments{
 \item{view}{A function that takes an object and returns a value}
