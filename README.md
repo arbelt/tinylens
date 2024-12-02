@@ -12,7 +12,7 @@ The goal of tinylens is to provide a minimal set of tools for working
 with lenses in R.
 
 As of the initial release, this is basically a re-implementation of the
-`lenses` package (<https://github.com/cfhamill/lenses>).
+`lenses` package (<https://github.com/cfhammill/lenses>).
 
 ## Installation
 
