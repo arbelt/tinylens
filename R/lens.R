@@ -18,6 +18,7 @@
 #'
 #' @param view A function that takes an object and returns a value
 #' @param set A function that takes an object and a value and returns a new object
+#' @return A lens with the specified view and set functions
 #' @importFrom S7 new_class class_function
 #' @export
 #' @examples

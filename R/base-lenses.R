@@ -182,6 +182,7 @@ map_l <- function(l, .ptype = NULL) {
 #' Convenience function that mirrors [purrr::pluck()].
 #'
 #' @param ... A sequence of lenses and/or integers/logical vectors
+#' @return A lens that combines all specified lenses (left to right).
 #'
 #' @export
 #' @examples

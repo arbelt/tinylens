@@ -11,6 +11,9 @@ lens(view, set = NULL)
 
 \item{set}{A function that takes an object and a value and returns a new object}
 }
+\value{
+A lens with the specified view and set functions
+}
 \description{
 A lens is a pair of functions that can be used to view and set a value in an object.
 Lenses are implemented as S7 classes.

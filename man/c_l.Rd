@@ -9,6 +9,9 @@ c_l(...)
 \arguments{
 \item{...}{A sequence of lenses and/or integers/logical vectors}
 }
+\value{
+A lens that combines all specified lenses (left to right).
+}
 \description{
 Convenience function that mirrors \code{\link[purrr:pluck]{purrr::pluck()}}.
 }
