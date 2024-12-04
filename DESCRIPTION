@@ -7,9 +7,9 @@ Description: The 'tinylens' package provides a minimal implementation of
     functional lenses, inspired by the 'lenses' package, which was in turn based
     on the Haskell 'lens' package <https://lens.github.io>. Lenses are
     composable getter/setter pairs that provide a functional approach to manipulating
-    deeply nested data structures. See the lens wiki for more information on
-    lenses and the history of their development:
-    <https://github.com/ekmett/lens/wiki/History-of-Lenses>.
+    deeply nested data structures, e.g., elements within list columns in data
+    frames. See the lens wiki for more information on lenses and the history of
+    their development: <https://github.com/ekmett/lens/wiki/History-of-Lenses>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
