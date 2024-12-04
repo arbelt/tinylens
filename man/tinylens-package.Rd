@@ -6,7 +6,7 @@
 \alias{tinylens-package}
 \title{tinylens: Minimal Implementation of Functional Lenses}
 \description{
-The 'tinylens' package provides a minimal implementation of functional lenses, inspired by the earlier 'lenses' package \url{https://github.com/cfhammill/lenses}, which was in turn based on the Haskell 'lens' package by Kmett (2012) \url{https://github.com/ekmett/lens}. Lenses are composable getter/setter pairs that provide a functional approach to manipulating deeply nested data structures, e.g., elements within list columns in data frames. See the lens wiki for more information on lenses and the history of their development: \url{https://github.com/ekmett/lens/wiki/History-of-Lenses}.
+Provides a minimal implementation of functional lenses to facilitate the manipulation of nested data structures in a functional style. The implementation is inspired by the earlier 'lenses' package \url{https://github.com/cfhammill/lenses}, which was in turn based on the Haskell 'lens' package by Kmett (2012) \url{https://github.com/ekmett/lens}. Lenses are composable getter/setter pairs that provide a functional approach to manipulating deeply nested data structures, e.g., elements within list columns in data frames. See the lens wiki for more information on lenses and the history of their development: their development: \url{https://github.com/ekmett/lens/wiki/History-of-Lenses}.
 }
 \seealso{
 Useful links:

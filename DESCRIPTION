@@ -3,14 +3,15 @@ Title: Minimal Implementation of Functional Lenses
 Version: 0.1.0
 Authors@R: 
     person("Albert", "Wang", , "albert_z_wang@harvard.edu", role = c("aut", "cre", "cph"))
-Description: The 'tinylens' package provides a minimal implementation of
-    functional lenses, inspired by the earlier 'lenses' package
+Description: Provides a minimal implementation of functional lenses to facilitate
+    the manipulation of nested data structures in a functional style. The
+    implementation is inspired by the earlier 'lenses' package
     <https://github.com/cfhammill/lenses>, which was in turn based on the
     Haskell 'lens' package by Kmett (2012)
-    <https://github.com/ekmett/lens>. Lenses are
-    composable getter/setter pairs that provide a functional approach to manipulating
-    deeply nested data structures, e.g., elements within list columns in data
-    frames. See the lens wiki for more information on lenses and the history of
+    <https://github.com/ekmett/lens>. Lenses are composable getter/setter pairs
+    that provide a functional approach to manipulating deeply nested data
+    structures, e.g., elements within list columns in data frames. See the lens
+    wiki for more information on lenses and the history of their development:
     their development: <https://github.com/ekmett/lens/wiki/History-of-Lenses>.
 License: MIT + file LICENSE
 Encoding: UTF-8
