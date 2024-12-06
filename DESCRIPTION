@@ -3,16 +3,16 @@ Title: Minimal Implementation of Functional Lenses
 Version: 0.1.0
 Authors@R: 
     person("Albert", "Wang", , "albert_z_wang@harvard.edu", role = c("aut", "cre", "cph"))
-Description: Provides a minimal implementation of functional lenses to facilitate
-    the manipulation of nested data structures in a functional style. The
-    implementation is inspired by the earlier 'lenses' package
-    <https://github.com/cfhammill/lenses>, which was in turn based on the
-    Haskell 'lens' package by Kmett (2012)
-    <https://github.com/ekmett/lens>. Lenses are composable getter/setter pairs
-    that provide a functional approach to manipulating deeply nested data
-    structures, e.g., elements within list columns in data frames. See the lens
-    wiki for more information on lenses and the history of their development:
-    their development: <https://github.com/ekmett/lens/wiki/History-of-Lenses>.
+Description: Provides utilities to create and use lenses to simplify data
+    manipulation. Lenses are composable getter/setter pairs that provide a
+    functional approach to manipulating deeply nested data structures, e.g.,
+    elements within list columns in data frames. The implementation is based on
+    the earlier 'lenses' R package <https://github.com/cfhammill/lenses>,
+    which was inspired by the Haskell 'lens' package by Kmett (2012)
+    <https://github.com/ekmett/lens>, one of the most widely referenced
+    implementations of lenses. For additional background and history on the
+    theory of lenses, see the 'lens' package wiki:
+    <https://github.com/ekmett/lens/wiki/History-of-Lenses>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
