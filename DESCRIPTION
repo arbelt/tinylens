@@ -1,6 +1,6 @@
 Package: tinylens
 Title: Minimal Implementation of Functional Lenses
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person("Albert", "Wang", , "albert_z_wang@harvard.edu", role = c("aut", "cre", "cph"))
 Description: Provides utilities to create and use lenses to simplify data
