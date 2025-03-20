@@ -142,7 +142,7 @@ filter_il <- function(...) {
       rlang::eval_tidy(x, data = d)
     }, .dots)
     .rows <- Reduce(`&`, .evaled_dots)
-    .rows
+    which(.rows)
   }
   getter <- function(d) {
     .rows <- .get_rows(d)
